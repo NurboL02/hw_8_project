@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Список тегов</title>
+</head>
+<body>
+    <h1>Список тегов</h1>
+    <ul>
+        {% for tag in tags %}
+            <li>{{ tag.name }}</li>
+        {% empty %}
+            <li>Нет тегов.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

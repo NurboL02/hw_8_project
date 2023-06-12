@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Создание заказа</title>
+</head>
+<body>
+    <h1>Создание заказа</h1>
+    <form method="POST" action="{% url 'cloth:create_order' %}">
+        {% csrf_token %}
+        <label for="customer">Клиент:</label>
+        <select name="customer" id="customer">
+            {% for customer in customers %}
+                <option value="{{ customer.id }}">{{ customer.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="product">Продукт:</label>
+        <select name="product" id="product">
+            {% for product in products %}
+                <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="status">Статус:</label>
+        <select name="status" id="status">
+            <option value="Ожидание">Ожидание</option>
+            <option value="В пути">В пути</option>
+            <option value="Доставлено">Доставлено</option>
+        </select>
+        <br>
+        <input type="submit" value="Создать заказ">
+    </form>
+</body>
+</html>
